@@ -1,0 +1,158 @@
+algoritmo "Menu de Drinks"
+
+var
+  carrinho: vetor[1..99] de caracter
+  opcao, indice, indice2: inteiro
+  conf_ped: caractere
+  valor, total: real
+
+procedimento caipirinha_de_vinho()
+inicio
+  escreval("_________________________")
+  escreval("|  Caipirinha de vinho   |")
+  escreval("_________________________")
+  escreval("|Limões                  |")
+  escreval("|Açucar                  |")
+  escreval("|Gelo                    |")
+  escreval("|Canela (Opcional)       |")
+  escreval("_________________________")
+  escreval("|-------|R$20,00|--------|")
+  escreval("_________________________")
+  valor <- 20.00
+fimprocedimento
+
+procedimento sex_on_the_beach()
+inicio
+  escreval("_________________________")
+  escreval("|  Sex on the Beach      |")
+  escreval("_________________________")
+  escreval("|Vodka                   |")
+  escreval("|Licor de pêssego        |")
+  escreval("|Suco de cranberry       |")
+  escreval("|Grenadine               |")
+  escreval("_________________________")
+  escreval("|------|R$25,00|---------|")
+  escreval("_________________________")
+  valor <- 25.00
+fimprocedimento
+
+procedimento lagoa_azul()
+inicio
+  escreval("_________________________")
+  escreval("|    Lagoa Azul          |")
+  escreval("_________________________")
+  escreval("|Vodka                   |")
+  escreval("|Licor de curaçao         |")
+  escreval("|Suco de abacaxi         |")
+  escreval("|Blue Curaçao            |")
+  escreval("_________________________")
+  escreval("|------|R$22,00|---------|")
+  escreval("_________________________")
+  valor <- 22.00
+fimprocedimento
+
+procedimento pina_colada()
+inicio
+  escreval("_________________________")
+  escreval("|   Piña Colada          |")
+  escreval("_________________________")
+  escreval("|Rum                    |")
+  escreval("|Leite de coco           |")
+  escreval("|Suco de abacaxi         |")
+  escreval("|Gelo                    |")
+  escreval("_________________________")
+  escreval("|------|R$23,00|---------|")
+  escreval("_________________________")
+  valor <- 23.00
+fimprocedimento
+
+procedimento gin_e_tonica()
+inicio
+  escreval("_________________________")
+  escreval("|   Gin e Tônica         |")
+  escreval("_________________________")
+  escreval("|Gin                    |")
+  escreval("|Água tônica             |")
+  escreval("|Gelo                    |")
+  escreval("|Rodelas de limão        |")
+  escreval("_________________________")
+  escreval("|------|R$18,00|---------|")
+  escreval("_________________________")
+  valor <- 18.00
+fimprocedimento
+
+procedimento manhattan()
+inicio
+  escreval("_________________________")
+  escreval("|      Manhattan         |")
+  escreval("_________________________")
+  escreval("|Bourbon                 |")
+  escreval("|Vermute doce            |")
+  escreval("|Cereja (Guarnição)      |")
+  escreval("|Gelo                    |")
+  escreval("_________________________")
+  escreval("|------|R$28,00|---------|")
+  escreval("_________________________")
+  valor <- 28.00
+fimprocedimento
+
+inicio
+  indice2 <- 0
+  total <- 0
+
+  enquanto indice2 = 0 faca
+    caipirinha_de_vinho()
+    sex_on_the_beach()
+    lagoa_azul()
+    pina_colada()
+    gin_e_tonica()
+    manhattan()
+
+    escreval("Escolha um drink:")
+    escreval("1. Caipirinha de Vinho")
+    escreval("2. Sex on the Beach")
+    escreval("3. Lagoa Azul")
+    escreval("4. Piña Colada")
+    escreval("5. Gin e Tônica")
+    escreval("6. Manhattan")
+    indice <- indice + 1
+    escreva("Digite a opção desejada: ")
+    leia(opcao)
+
+    escolha opcao
+      caso 1
+        carrinho[indice] <- "Caipirinha de Limao"
+        total <- total + valor
+      caso 2
+        carrinho[indice] <- "Sex on the Beach"
+        total <- total + valor
+      caso 3
+        carrinho[indice] <- "Lagoa Azul"
+        total <- total + valor
+      caso 4
+        carrinho[indice] <- "Piña Colada"
+        total <- total + valor
+      caso 5
+        carrinho[indice] <- "Gin e Tônica"
+        total <- total + valor
+      caso 6
+        carrinho[indice] <- "Manhattan"
+        total <- total + valor
+      senao
+        escreval("Essa opção não existe! Por favor, digite outro número: ")
+    fimescolha
+
+    escreval("Ótima escolha!")
+    escreval("")
+    escreval("Deseja finalizar o pedido ou gostaria de pedir mais coisas? 'S' para continuar pedindo, 'N' para finalizar pedido: ")
+    leia(conf_ped)
+
+    se conf_ped = "N" entao
+      indice2 <- 1
+    fimse
+
+  fimenquanto
+
+  escreval("Obrigado por usar o Menu de Drinks!")
+  escreval("O valor total da sua compra é: R$", total:2)
+fimalgoritmo
