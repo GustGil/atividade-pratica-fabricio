@@ -1,20 +1,20 @@
 algoritmo "Menu de Drinks"
 tipo
 lista_ped = registro
-         valor : real                     //aqui é onde criamos o registro que se junta ao vetor posteriormente para fazermos o carrinho de compras
+         valor : real                     //aqui é onde criamos o registro que se junta ao vetor posteriormente para fazermos o carrinho de compras
          nome_bebida : caracter
 fimregistro
 var
 
 
-carrinho : vetor[1..99] de lista_ped            //nesse vetor é onde armazenamos os pedidos do cliente
-valor_total : real                        //variavel onde calculamos o valor total que sera pago pelo cliente
-opcao, indice, indice2, indremo, posremo : inteiro          //opcao é a variavel que computa a escolha do cliente, indice e indice2 sao duas variaveis que utilizamos para melhor organização do codigo
-conf_ped, nome : caracter                       //variavel onde computamos se o cliente vai querer continuar adicionando drinks ao carrinho ou ira finalizar o pedido
+carrinho : vetor[1..99] de lista_ped            //nesse vetor é onde armazenamos os pedidos do cliente
+valor_total : real                        //variavel onde calculamos o valor total que sera pago pelo cliente
+opcao, indice, indice2, indremo, posremo : inteiro          //opcao é a variavel que computa a escolha do cliente, indice e indice2 sao duas variaveis que utilizamos para melhor organização do codigo
+conf_ped, nome : caracter                       //variavel onde computamos se o cliente vai querer continuar adicionando drinks ao carrinho ou ira finalizar o pedido
 
 procedimento caipirinha_de_vinho()
 inicio
-  escreval("_________________________")         //cada procedimento se refere ao layout do menu, onde mostramos os ingrediente de cada drink
+  escreval("_________________________")         //cada procedimento se refere ao layout do menu, onde mostramos os ingrediente de cada drink
   escreval("|  Caipirinha de vinho   |")
   escreval("_________________________")
   escreval("|Limões                  |")
@@ -96,145 +96,145 @@ inicio
   escreval("_________________________")
 fimprocedimento
 
-procedimento msg()                        //esse procedimento nos fizemos com a finalidade da verificação de se o cliente gostaria de continuar a comprar ou finalizar o pedido
+procedimento msg()                        //esse procedimento nos fizemos com a finalidade da verificação de se o cliente gostaria de continuar a comprar ou finalizar o pedido
 inicio
 escreval("Otima escolha!")
-      escreval("")
-      escreval("Deseja finalizar o pedido ou gostaria de pedir mais coisas? 'S' para continuar pedindo, 'N' para finalizar pedido: ")
-      leia(conf_ped)
-      enquanto (conf_ped <> "S") e (conf_ped <> "N") faca
+      escreval("")
+      escreval("Deseja finalizar o pedido ou gostaria de pedir mais coisas? 'S' para continuar pedindo, 'N' para finalizar pedido: ")
+      leia(conf_ped)
+      enquanto (conf_ped <> "S") e (conf_ped <> "N") faca
             escreval("Valor invalido, digite 'S' ou 'N'!")
             leia(conf_ped)
    fimenquanto
-      se conf_ped = "s" entao
-            indice2 <- 0
-      senao                         //precisamos inserir o valor no indice2 porque é esse o parametro que define se o menu vai continuar a aparecer ou ira para o carrinho
-            se conf_ped = "N" entao
-                  indice2 <- 1
-                  fimse
-      fimse
+      se conf_ped = "s" entao
+            indice2 <- 0
+      senao                         //precisamos inserir o valor no indice2 porque é esse o parametro que define se o menu vai continuar a aparecer ou ira para o carrinho
+            se conf_ped = "N" entao
+                  indice2 <- 1
+                  fimse
+      fimse
 fimprocedimento
 
 
-inicio                                    //inicio da parte logica do algoritmo
-enquanto indice2 = 0 faca                 //é essa linha que define se o menu vai repetir ou terminar o codigo, caso o cliente queira continuar, a variavel indice2 continua com o valor 0, mas caso o usuario decida para o processo, a variavel recebe o valor 1, fazendo com oq o laço de repetição termine
+inicio                                    //inicio da parte logica do algoritmo
+enquanto indice2 = 0 faca                 //é essa linha que define se o menu vai repetir ou terminar o codigo, caso o cliente queira continuar, a variavel indice2 continua com o valor 0, mas caso o usuario decida para o processo, a variavel recebe o valor 1, fazendo com oq o laço de repetição termine
 indice <- indice + 1
 
-      caipirinha_de_vinho()               //essa parte é onde o os drinks e ingrediente são mostrados na tela
-      sex_on_the_beach()
-      lagoa_azul()
-      pina_colada()
-      gin_e_tonica()
-      manhattan()
+      caipirinha_de_vinho()               //essa parte é onde o os drinks e ingrediente são mostrados na tela
+      sex_on_the_beach()
+      lagoa_azul()
+      pina_colada()
+      gin_e_tonica()
+      manhattan()
 
-      escreval("Escolha um drink:")       //um menu menor, para que o cliente saiba o numero das opções quando for digitar
-      escreval("1. Caipirinha de Vinho")
-      escreval("2. Sex on the Beach")
-      escreval("3. Lagoa Azul")
-      escreval("4. Piña Colada")
-      escreval("5. Gin e Tônica")
-      escreval("6. Manhattan")
-      escreval("0. Finalizar Pedido")
+      escreval("Escolha um drink:")       //um menu menor, para que o cliente saiba o numero das opções quando for digitar
+      escreval("1. Caipirinha de Vinho")
+      escreval("2. Sex on the Beach")
+      escreval("3. Lagoa Azul")
+      escreval("4. Piña Colada")
+      escreval("5. Gin e Tônica")
+      escreval("6. Manhattan")
+      escreval("0. Finalizar Pedido")
 
-      
-      escreva("Digite a opção desejada: ")
-      leia(opcao)                   // leitura da variavel opcao
-      
-      enquanto (opcao <> 1) e (opcao <> 2) e (opcao <> 3) e (opcao <> 4) e (opcao <> 5) e (opcao <> 6) e (opcao <> 0) faca    //esse laço de repetiçao é utilizado para verificar se o numero que o cliente digitou é valido ou não, fazendo com q se o usuario digitar um numero maior q 7 e menor que 0, o programa faz a leitura da variavel opção denovo
+
+      escreva("Digite a opção desejada: ")
+      leia(opcao)                   // leitura da variavel opcao
+
+      enquanto (opcao <> 1) e (opcao <> 2) e (opcao <> 3) e (opcao <> 4) e (opcao <> 5) e (opcao <> 6) e (opcao <> 0) faca    //esse laço de repetiçao é utilizado para verificar se o numero que o cliente digitou é valido ou não, fazendo com q se o usuario digitar um numero maior q 7 e menor que 0, o programa faz a leitura da variavel opção denovo
                   escreval("Essa opção não existe! por favor digite um numero valido: ")
                   leia(opcao)
    fimenquanto
 
-      se opcao = 1 entao                                                      //aqui é onde o programa verifica qual foi o pedido do cliente, se o cliente escolheu esse drink, o computador guarda a informação e pergunta se ele quer pedir mais alguma coisa
-            carrinho[indice].nome_bebida <- "Caipirinha de Vinho"                   //essa linha registra a bebida que o cliente pediu no carrinho
-            carrinho[indice].valor <- 20                                      //essa linha registra o valor da bebida que o cliente pediu no carrinho
-            valor_total <- valor_total + 20                                         //essa linha é onde o computador adiciona o valor da bebida na variavel de valor total
-            msg()                                                       //essa linha é quem mostra a mensagem se o cliente deseja continuar comprando ou deseja terminar o pedido
-      senao
-            se opcao = 2 entao
-                  carrinho[indice].nome_bebida <- "Sex on The Beach"
-                  carrinho[indice].valor <- 25
-                   valor_total <- valor_total + 25
-                  msg()
-            senao
-                  se opcao = 3 entao
-                        carrinho[indice].nome_bebida <- "Lagoa Azul"
-                              carrinho[indice].valor <- 22
-                              valor_total <- valor_total + 22
-                              msg()
-                  senao
-                        se opcao = 4 entao
-                              carrinho[indice].nome_bebida <- "Piña Colada"
-                                    carrinho[indice].valor <- 23
-                                    valor_total <- valor_total + 23
-                                    msg()
-                        senao
-                              se opcao = 5 entao
-                                    carrinho[indice].nome_bebida <- "Gin e Tônica"
-                                          carrinho[indice].valor <- 18
-                                          valor_total <- valor_total + 18
-                                          msg()
-                              senao
-                                    se opcao = 6 entao
-                                          carrinho[indice].nome_bebida <- "Manhattan "
-                                                carrinho[indice].valor <- 28
-                                                valor_total <- valor_total + 28
-                                                msg()
-                                          senao
-                                                se opcao = 0 entao            //esse é o ultimo caso de opcao, onde o cliente deseja nao comprar mais nada, fazendo com que o laço de repetição do menu seja encerrado
-                                                indice2 <- 1
-                                                fimse
-                                    fimse
-                              fimse
-                        fimse
-                  fimse
-            fimse
-      fimse
+      se opcao = 1 entao                                                      //aqui é onde o programa verifica qual foi o pedido do cliente, se o cliente escolheu esse drink, o computador guarda a informação e pergunta se ele quer pedir mais alguma coisa
+            carrinho[indice].nome_bebida <- "Caipirinha de Vinho"                   //essa linha registra a bebida que o cliente pediu no carrinho
+            carrinho[indice].valor <- 20                                      //essa linha registra o valor da bebida que o cliente pediu no carrinho
+            valor_total <- valor_total + 20                                         //essa linha é onde o computador adiciona o valor da bebida na variavel de valor total
+            msg()                                                       //essa linha é quem mostra a mensagem se o cliente deseja continuar comprando ou deseja terminar o pedido
+      senao
+            se opcao = 2 entao
+                  carrinho[indice].nome_bebida <- "Sex on The Beach"
+                  carrinho[indice].valor <- 25
+                   valor_total <- valor_total + 25
+                  msg()
+            senao
+                  se opcao = 3 entao
+                        carrinho[indice].nome_bebida <- "Lagoa Azul"
+                              carrinho[indice].valor <- 22
+                              valor_total <- valor_total + 22
+                              msg()
+                  senao
+                        se opcao = 4 entao
+                              carrinho[indice].nome_bebida <- "Piña Colada"
+                                    carrinho[indice].valor <- 23
+                                    valor_total <- valor_total + 23
+                                    msg()
+                        senao
+                              se opcao = 5 entao
+                                    carrinho[indice].nome_bebida <- "Gin e Tônica"
+                                          carrinho[indice].valor <- 18
+                                          valor_total <- valor_total + 18
+                                          msg()
+                              senao
+                                    se opcao = 6 entao
+                                          carrinho[indice].nome_bebida <- "Manhattan "
+                                                carrinho[indice].valor <- 28
+                                                valor_total <- valor_total + 28
+                                                msg()
+                                          senao
+                                                se opcao = 0 entao            //esse é o ultimo caso de opcao, onde o cliente deseja nao comprar mais nada, fazendo com que o laço de repetição do menu seja encerrado
+                                                indice2 <- 1
+                                                fimse
+                                    fimse
+                              fimse
+                        fimse
+                  fimse
+            fimse
+      fimse
 
 
 
 fimenquanto
 indice2 <- indice
 indice <- 0
-equanto indremo = 0 faca
-      para indice de 1 ate indice2 faca
-            se carrinho[indice].valor > 0 entao
-                  escreval(indice," . ",carrinho[indice].nome_bebida," : ", carrinho[indice].valor)   //esse laço de repetição é o do carrinho de compras, ele mostra para o usuario os drinks que ele pediu, e o vaor de cada um
-            fimse
-      fimpara     
-      escreval("Valor total a pagar: R$", valor_total)                  //essa linha é onde mostra o valor total pago pelo cliente
+enquanto indremo = 0 faca
+      para indice de 1 ate indice2 faca
+            se carrinho[indice].valor > 0 entao
+                  escreval(indice," . ",carrinho[indice].nome_bebida," : ", carrinho[indice].valor)   //esse laço de repetição é o do carrinho de compras, ele mostra para o usuario os drinks que ele pediu, e o vaor de cada um
+            fimse
+      fimpara
+      escreval("Valor total a pagar: R$", valor_total)                  //essa linha é onde mostra o valor total pago pelo cliente
 
 
-      indice <- 0
-      
-
-      escreval("Deseja remover algo do carrinho? S/N")                  //aqui é onde o camputador le a variavel para saber se o cliente quer remover algo do carrinho
-      leia(conf_ped)
+      indice <- 0
 
 
-      enquanto (conf_ped = "S") ou (conf_ped = "s") ou (conf_ped = "N") ou (conf_ped = "n") faca      //esse laço de repetiçao é utilizado para verificar se o numero que o cliente digitou é valido ou não, fazendo com q se o usuario digitar um numero maior q 7 e menor que 0, o programa faz a leitura da variavel opção denovo
+      escreval("Deseja remover algo do carrinho? S/N")                  //aqui é onde o camputador le a variavel para saber se o cliente quer remover algo do carrinho
+      leia(conf_ped)
+
+
+      enquanto (conf_ped <> "S") e (conf_ped <> "s") e (conf_ped <> "N") e (conf_ped <> "n") faca      //esse laço de repetiçao é utilizado para verificar se o numero que o cliente digitou é valido ou não, fazendo com q se o usuario digitar um numero maior q 7 e menor que 0, o programa faz a leitura da variavel opção denovo
                   escreval("Essa opção não existe! por favor digite um numero valido: ")
                   leia(conf_ped)
-       fimenquanto
-]
+       fimenquanto
 
-      
-      se (conf_ped = "S") ou (conf_ped = "s") entao                                       //aqui é onde temos o codigo para remoção do drink, e subtração do valor_total
-            escreval("Qual a posição do drink que voce quer remover? ")
-            leia(posremo)
-            carrinho[posremo].nome_bebida <- ""
-            valor_total <- valor_total - carrinho[posremo].valor
+
+
+      se (conf_ped = "S") ou (conf_ped = "s") entao                                       //aqui é onde temos o codigo para remoção do drink, e subtração do valor_total
+            escreval("Qual a posição do drink que voce quer remover? ")
+            leia(posremo)
+            carrinho[posremo].nome_bebida <- ""
+            valor_total <- valor_total - carrinho[posremo].valor
                 carrinho[posremo].valor <- 0
-      senao                         
-            se (conf_ped = "N") ou (conf_ped = "n") entao
-                  indremo <- 1
-            fimse
-      fimse
-                  
-fimequanto
+      senao
+            se (conf_ped = "N") ou (conf_ped = "n") entao
+                  indremo <- 1
+            fimse
+      fimse
+
+fimenquanto
 
 Escreva("Qual o seu nome? ")
 leia(nome)
-escreval("Ok, ", nome ," quando o seu pedido estiver pronto vamos lhe chamar! ")                //essa é a ultima parte do codigo, onde o cliente se indentifica para que seja chamado depois que seu drink estiver pronto
+escreval("Ok, ", nome ," quando o seu pedido estiver pronto vamos lhe chamar! ")                //essa é a ultima parte do codigo, onde o cliente se indentifica para que seja chamado depois que seu drink estiver pronto
 
 fimalgoritmo
