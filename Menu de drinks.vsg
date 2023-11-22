@@ -1,10 +1,17 @@
-algoritmo "Menu de Drinks"
 
+algoritmo "Menu de Drinks"
+tipo
+lista_ped = registro
+         valor : real
+         nome_bebida : caracter
+fimregistro
 var
-  carrinho: vetor[1..99] de caracter
-  opcao, indice, indice2: inteiro
-  conf_ped: caractere
-  valor, total: real
+
+
+carrinho : vetor[1..99] de lista_ped
+valor_total : real
+opcao, indice, indice2 : inteiro
+conf_ped : caracter
 
 procedimento caipirinha_de_vinho()
 inicio
@@ -18,7 +25,6 @@ inicio
   escreval("_________________________")
   escreval("|-------|R$20,00|--------|")
   escreval("_________________________")
-  valor <- 20.00
 fimprocedimento
 
 procedimento sex_on_the_beach()
@@ -33,7 +39,6 @@ inicio
   escreval("_________________________")
   escreval("|------|R$25,00|---------|")
   escreval("_________________________")
-  valor <- 25.00
 fimprocedimento
 
 procedimento lagoa_azul()
@@ -48,7 +53,6 @@ inicio
   escreval("_________________________")
   escreval("|------|R$22,00|---------|")
   escreval("_________________________")
-  valor <- 22.00
 fimprocedimento
 
 procedimento pina_colada()
@@ -63,7 +67,6 @@ inicio
   escreval("_________________________")
   escreval("|------|R$23,00|---------|")
   escreval("_________________________")
-  valor <- 23.00
 fimprocedimento
 
 procedimento gin_e_tonica()
@@ -78,7 +81,6 @@ inicio
   escreval("_________________________")
   escreval("|------|R$18,00|---------|")
   escreval("_________________________")
-  valor <- 18.00
 fimprocedimento
 
 procedimento manhattan()
@@ -93,66 +95,115 @@ inicio
   escreval("_________________________")
   escreval("|------|R$28,00|---------|")
   escreval("_________________________")
-  valor <- 28.00
 fimprocedimento
 
+procedimento msg()
 inicio
-  indice2 <- 0
-  total <- 0
+escreval("Otima escolha!")
+	escreval("")
+	escreval("Deseja finalizar o pedido ou gostaria de pedir mais coisas? 'S' para continuar pedindo, 'N' para finalizar pedido: ")
+	leia(conf_ped)
+	enquanto (conf_ped <> "S") e (conf_ped <> "N") faca
+            escreval("Valor invalido, digite 'S' ou 'N'!")
+            leia(conf_ped)
+   fimenquanto
+   	se conf_ped = "s" entao
+   		indice2 <- 0
+   	senao
+   		se conf_ped = "N" entao
+   			indice2 <- 1
+   			fimse
+   	fimse
+fimprocedimento
 
-  enquanto indice2 = 0 faca
-    caipirinha_de_vinho()
-    sex_on_the_beach()
-    lagoa_azul()
-    pina_colada()
-    gin_e_tonica()
-    manhattan()
 
-    escreval("Escolha um drink:")
-    escreval("1. Caipirinha de Vinho")
-    escreval("2. Sex on the Beach")
-    escreval("3. Lagoa Azul")
-    escreval("4. Piña Colada")
-    escreval("5. Gin e Tônica")
-    escreval("6. Manhattan")
-    indice <- indice + 1
-    escreva("Digite a opção desejada: ")
-    leia(opcao)
+inicio
+enquanto indice2 = 0 faca
+indice <- indice + 1
 
-    escolha opcao
-      caso 1
-        carrinho[indice] <- "Caipirinha de Limao"
-        total <- total + valor
-      caso 2
-        carrinho[indice] <- "Sex on the Beach"
-        total <- total + valor
-      caso 3
-        carrinho[indice] <- "Lagoa Azul"
-        total <- total + valor
-      caso 4
-        carrinho[indice] <- "Piña Colada"
-        total <- total + valor
-      caso 5
-        carrinho[indice] <- "Gin e Tônica"
-        total <- total + valor
-      caso 6
-        carrinho[indice] <- "Manhattan"
-        total <- total + valor
-      senao
-        escreval("Essa opção não existe! Por favor, digite outro número: ")
-    fimescolha
+	caipirinha_de_vinho()
+	sex_on_the_beach()
+	lagoa_azul()
+	pina_colada()
+	gin_e_tonica()
+	manhattan()
 
-    escreval("Ótima escolha!")
-    escreval("")
-    escreval("Deseja finalizar o pedido ou gostaria de pedir mais coisas? 'S' para continuar pedindo, 'N' para finalizar pedido: ")
-    leia(conf_ped)
+	escreval("Escolha um drink:")
+	escreval("1. Caipirinha de Vinho")
+	escreval("2. Sex on the Beach")
+	escreval("3. Lagoa Azul")
+	escreval("4. Piña Colada")
+	escreval("5. Gin e Tônica")
+	escreval("6. Manhattan")
+	escreval("0. Finalizar Pedido")
 
-    se conf_ped = "N" entao
-      indice2 <- 1
-    fimse
+	
+	escreva("Digite a opção desejada: ")
+	leia(opcao)
+	
+	enquanto (opcao <> 1) e (opcao <> 2) e (opcao <> 3) e (opcao <> 4) e (opcao <> 5) e (opcao <> 6) e (opcao <> 0) faca
+                  escreval("Essa opção não existe! por favor digite um numero valido: ")
+                  leia(opcao)
+   fimenquanto
 
-  fimenquanto
+	se opcao = 1 entao
+		carrinho[indice].nome_bebida <- "Caipirinha de Vinho"
+		carrinho[indice].valor <- 20
+		valor_total <- valor_total + 20
+		msg()
+	senao
+		se opcao = 2 entao
+			carrinho[indice].nome_bebida <- "Sex on The Beach"
+         carrinho[indice].valor <- 25
+         valor_total <- valor_total + 25
+         msg()
+		senao
+			se opcao = 3 entao
+				carrinho[indice].nome_bebida <- "Lagoa Azul"
+            carrinho[indice].valor <- 22
+            valor_total <- valor_total + 22
+            msg()
+			senao
+				se opcao = 4 entao
+					carrinho[indice].nome_bebida <- "Piña Colada"
+               carrinho[indice].valor <- 23
+               valor_total <- valor_total + 23
+               msg()
+				senao
+					se opcao = 5 entao
+						carrinho[indice].nome_bebida <- "Gin e Tônica"
+                  carrinho[indice].valor <- 18
+                  valor_total <- valor_total + 18
+                  msg()
+					senao
+						se opcao = 6 entao
+							carrinho[indice].nome_bebida <- "Manhattan "
+                     carrinho[indice].valor <- 28
+                     valor_total <- valor_total + 28
+                     msg()
+                  senao
+                       se opcao = 0 entao
+                          indice2 <- 1
+                       fimse
+						fimse
+					fimse
+				fimse
+			fimse
+		fimse
+	fimse
 
-  escreval("Obrigado por usar o Menu de Drinks!")
-  escreval("O valor total da sua compra é: R$", total:2)
+
+
+fimenquanto
+indice2 <- indice
+indice <- 0
+para indice de 1 ate indice2 faca
+     escreval(carrinho[indice].nome_bebida," : ", carrinho[indice].valor)
+fimpara
+escreval("Valor total a pagar: R$", valor_total)
+
+
+
+
+
 fimalgoritmo
